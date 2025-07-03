@@ -129,65 +129,65 @@
       padding: 20px 10px;
       font-size: 14px;
     }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 24px;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-        margin-top: 10px;
-      }
-
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-    .slideshow {
+.carousel {
   position: relative;
+  width: 100%;
   height: 80vh;
   overflow: hidden;
 }
 
+.slides {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+  width: 300%; /* 3 slides */
+  height: 100%;
+}
+
 .slide {
-  position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   object-fit: cover;
-  transition: opacity 1s ease-in-out;
-  opacity: 0;
+  flex-shrink: 0;
 }
 
-.hero-text {
+.prev, .next {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 25px 40px;
-  border-radius: 8px;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.6);
   color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
   text-align: center;
+  font-size: 24px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 15px;
 }
 
-.hero-text h2 {
-  font-size: 36px;
-}
-
-@media (max-width: 768px) {
-  .hero-text h2 {
-    font-size: 22px;
-    padding: 10px 20px;
-  }
+   
 }
 
   </style>
@@ -210,17 +210,18 @@
     </nav>
   </header>
 
-  <section class="hero">
-  <div class="slideshow">
+<section class="carousel">
+  <div class="slides" id="slideContainer">
     <img class="slide" src="images.jpeg" alt="Slide 1">
     <img class="slide" src="images (3).jpeg" alt="Slide 2">
     <img class="slide" src="images (2).jpeg" alt="Slide 3">
-    <div class="hero-text">
-      <h2>“Service to mankind is service to God.”</h2>
-    </div>
   </div>
-</section>
 
+  <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="next" onclick="changeSlide(1)">&#10095;</button>
+
+  <div class="caption">“Service to mankind is service to God.”</div>
+</section>
 
   <section class="section">
     <h3>Welcome to BGS Public School, Kengeri</h3>
@@ -249,24 +250,20 @@
     <a href="https://bgspskengeri.edu.in/" style="color: #ffd700;">Visit Official Site</a>
   </footer>
 
-  <script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.slide');
 
-  function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.style.opacity = i === index ? '1' : '0';
-    });
-  }
 
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  setInterval(nextSlide, 4000); // Change slide every 4 seconds
-  showSlide(currentSlide); // Show the first slide initially
-</script>
 
 </body>
+  <script>
+  let slideIndex = 0;
+  const slideContainer = document.getElementById("slideContainer");
+  const totalSlides = document.querySelectorAll('.slide').length;
+
+  function changeSlide(n) {
+    slideIndex = (slideIndex + n + totalSlides) % totalSlides;
+    slideContainer.style.transform = `translateX(-${slideIndex * 100}vw)`;
+  }
+
+  setInterval(() => changeSlide(1), 4000); // Auto slide every 4 seconds
+</script>
 </html>
