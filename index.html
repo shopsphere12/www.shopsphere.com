@@ -6,18 +6,12 @@
   <title>BGS Public School</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f0f4f8;
       color: #333;
     }
-
     header {
       background-color: #003366;
       color: white;
@@ -25,75 +19,115 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      animation: fadeInDown 1s ease;
     }
-
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     .logo {
       display: flex;
       align-items: center;
     }
-
     .logo img {
       height: 60px;
       width: 60px;
       margin-right: 15px;
     }
-
-    .logo h1 {
-      font-size: 24px;
-    }
-
+    .logo h1 { font-size: 24px; }
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
     }
-
     nav ul li a {
       color: white;
       text-decoration: none;
       font-weight: 600;
       transition: 0.3s;
     }
+    nav ul li a:hover { color: #ffd700; }
 
-    nav ul li a:hover {
-      color: #ffd700;
-    }
-
-    .hero {
-      background: url('https://bgspskengeri.edu.in/images/BGSSlide/Slide1.jpg') no-repeat center center/cover;
+    .carousel {
+      position: relative;
+      width: 100%;
       height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      overflow: hidden;
+      animation: fadeInUp 1s ease;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .slide.active { opacity: 1; z-index: 1; }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.6);
       color: white;
-      padding: 0 20px;
+      border: none;
+      font-size: 30px;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .caption {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      background: rgba(0,0,0,0.5);
+      color: white;
+      padding: 15px;
+      z-index: 2;
     }
 
-    .hero h2 {
-      font-size: 36px;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 8px;
+    .dots {
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      bottom: 60px;
+      z-index: 5;
     }
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: rgba(255,255,255,0.7);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+      cursor: pointer;
+    }
+    .dot.active { background-color: #fff; }
 
     .section {
       padding: 60px 20px;
       text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
     }
-
-    .section h3 {
-      font-size: 28px;
-      color: #003366;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      max-width: 850px;
-      margin: 0 auto;
-      font-size: 16px;
-      line-height: 1.8;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .features {
@@ -112,15 +146,8 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: 0.3s;
     }
-
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-
-    .feature h4 {
-      color: #003366;
-      margin-bottom: 10px;
-    }
+    .feature:hover { transform: translateY(-5px); }
+    .feature h4 { color: #003366; margin-bottom: 10px; }
 
     footer {
       background-color: #002850;
@@ -129,141 +156,86 @@
       padding: 20px 10px;
       font-size: 14px;
     }
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 80vh;
-  overflow: hidden;
-}
-
-.slides {
-  display: flex;
-  transition: transform 0.6s ease-in-out;
-  width: 300%; /* 3 slides */
-  height: 100%;
-}
-
-.slide {
-  width: 100vw;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  font-size: 30px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 1000;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-.caption {
-  position: absolute;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-  font-size: 24px;
-  background: rgba(0,0,0,0.5);
-  color: white;
-  padding: 15px;
-}
-
-   
-}
-
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="BGS_Logo_200x200-1.png" alt="BGS Public School Logo">
-      <h1>BGS Public School</h1>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="https://bgspskengeri.edu.in/about-us.html">About</a></li>
-        <li><a href="https://bgspskengeri.edu.in/facilities.html">Facilities</a></li>
-        <li><a href="https://bgspskengeri.edu.in/admission.html">Admissions</a></li>
-        <li><a href="https://bgspskengeri.edu.in/contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- 🔊 Background Music -->
+<audio autoplay loop hidden>
+  <source src="Ariel Shalom - Star Walk.mp3" type="audio/mpeg">
+</audio>
 
-<section class="carousel">
-  <div class="slides" id="slideContainer">
-    <img class="slide" src="images.jpeg" alt="Slide 1">
-    <img class="slide" src="images (3).jpeg" alt="Slide 2">
-    <img class="slide" src="images (2).jpeg" alt="Slide 3">
+<header>
+  <div class="logo">
+    <img src="BGS_Logo_200x200-1.png" alt="BGS Public School Logo">
+    <h1>BGS Public School</h1>
   </div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Facilities</a></li>
+      <li><a href="#">Admissions</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- 🎞 Carousel -->
+<section class="carousel">
+  <div class="slide active"><img src="images (1).jpeg" alt="Slide 1"></div>
+  <div class="slide"><img src="images (2).jpeg" alt="Slide 2"></div>
+  <div class="slide"><img src="images (3).jpeg" alt="Slide 3"></div>
 
   <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
   <button class="next" onclick="changeSlide(1)">&#10095;</button>
-
   <div class="caption">“Service to mankind is service to God.”</div>
+  <div class="dots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
 </section>
 
-  <section class="section">
-    <h3>Welcome to BGS Public School, Kengeri</h3>
-    <p>
-      BGS Public School, located in Kengeri, Bengaluru, is dedicated to nurturing young minds and shaping future leaders. With state-of-the-art infrastructure, experienced faculty, and a strong focus on academics, values, and co-curricular development, we empower students to excel and thrive in a rapidly changing world.
-    </p>
+<section class="section">
+  <h3>Welcome to BGS Public School, Kengeri</h3>
+  <p>BGS Public School, located in Kengeri, Bengaluru, is dedicated to nurturing young minds and shaping future leaders.</p>
+  <div class="features">
+    <div class="feature"><h4>Modern Classrooms</h4><p>Smart boards and interactive learning.</p></div>
+    <div class="feature"><h4>Sports & Arts</h4><p>Integrated co-curricular excellence.</p></div>
+    <div class="feature"><h4>Tech & Values</h4><p>Innovation blended with ethics.</p></div>
+  </div>
+</section>
 
-    <div class="features">
-      <div class="feature">
-        <h4>Modern Classrooms</h4>
-        <p>Smart boards, visual aids, and interactive learning methods to boost engagement and understanding.</p>
-      </div>
-      <div class="feature">
-        <h4>Sports & Arts</h4>
-        <p>Integrated sports curriculum and cultural programs to ensure all-round development of students.</p>
-      </div>
-      <div class="feature">
-        <h4>Tech & Values</h4>
-        <p>Combining digital innovation with ethical grounding to prepare responsible future citizens.</p>
-      </div>
-    </div>
-  </section>
+<footer>
+  &copy; 2025 BGS Public School | Bengaluru - 560060
+</footer>
 
-  <footer>
-    &copy; 2025 BGS Public School | Bengaluru - 560060 | Powered by Education & Vision | 
-    <a href="https://bgspskengeri.edu.in/" style="color: #ffd700;">Visit Official Site</a>
-  </footer>
+<script>
+let slideIndex = 0;
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
-
-
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+    if (i === index) {
+      slide.classList.add("active");
+      dots[i].classList.add("active");
+    }
+  });
+}
+function changeSlide(n) {
+  slideIndex = (slideIndex + n + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+function goToSlide(n) {
+  slideIndex = n;
+  showSlide(slideIndex);
+}
+setInterval(() => changeSlide(1), 5000);
+</script>
 
 </body>
-  <script>
-  let slideIndex = 0;
-  const slideContainer = document.getElementById("slideContainer");
-  const totalSlides = document.querySelectorAll('.slide').length;
-
-  function changeSlide(n) {
-    slideIndex = (slideIndex + n + totalSlides) % totalSlides;
-    slideContainer.style.transform = `translateX(-${slideIndex * 100}vw)`;
-  }
-
-  setInterval(() => changeSlide(1), 4000); // Auto slide every 4 seconds
-</script>
 </html>
