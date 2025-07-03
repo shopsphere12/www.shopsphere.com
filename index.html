@@ -1,77 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BGS Public School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.topnav {
-  overflow: hidden;
-  background-color: #414141;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f8fb;
+      color: #333;
+    }
 
-.topnav a {
-  float: left;
-  color: #ffffff;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-.topnav a:hover {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-}
+    header h1 {
+      font-size: 28px;
+    }
 
-/* Create a right-aligned (split) link inside the navigation bar */
-.topnav a.split {
-  float: right;
-  background-color: #05d88b;
-  color: white;
-}
-a:link, a:visited {
-  background-color: #36f446;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
 
-a:hover, a:active {
-  background-color: rgb(255, 60, 0);
-}a:link, a:visited {
-  background-color: #f44336;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
 
-a:hover, a:active {
-  background-color: red;
-}
-</style>
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    .hero {
+      background: url('https://bgspskengeri.edu.in/images/BGSSlide/Slide1.jpg') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero h2 {
+      font-size: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 28px;
+      color: #004080;
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 40px;
+      gap: 30px;
+    }
+
+    .feature {
+      background: white;
+      padding: 30px;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature h4 {
+      margin-bottom: 10px;
+      color: #004080;
+    }
+
+    footer {
+      background-color: #002850;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 26px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <header>
+    <h1>BGS Public School</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="https://bgspskengeri.edu.in/about-us.html">About</a></li>
+        <li><a href="https://bgspskengeri.edu.in/facilities.html">Facilities</a></li>
+        <li><a href="https://bgspskengeri.edu.in/admission.html">Admissions</a></li>
+        <li><a href="https://bgspskengeri.edu.in/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<div class="topnav">
-  <a class="action" href="C:\Users\DELL\Desktop\WEBSITE\index.HTML">Home</a>
-  <a href="C:\Users\DELL\Desktop\WEBSITE\shopshpere_HTML_FILES\contact.html">Contact</a>
-  <a href="C:\Users\DELL\Desktop\WEBSITE\shopshpere_HTML_FILES\registration.html" class="split">REGISTRATION</a>
-  
-</div>
-<br><br>
-<img src="./SHOP SHPERE_files/Portable-Fan-Cooler-17-5-23-01.jpg" width="375" height="375">
-<h5>INR 799</h5><div>
-<a href="C:\Users\DELL\Desktop\WEBSITE\shopshpere_HTML_FILES\FAN.HTML" target="_blank">buy</a>
-</div>
+  <section class="hero">
+    <h2>Empowering Young Minds with Knowledge and Values</h2>
+  </section>
+
+  <section class="section">
+    <h3>Welcome to BGS Public School</h3>
+    <p>
+      BGS Public School, Kengeri, is a premier institution that blends traditional Indian values with modern educational practices. We provide a nurturing environment where students grow academically, emotionally, and socially, preparing them for the challenges of tomorrow.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <h4>Smart Classrooms</h4>
+        <p>Equipped with interactive boards and audio-visual aids to enhance learning experiences.</p>
+      </div>
+      <div class="feature">
+        <h4>Sports & Fitness</h4>
+        <p>Multiple sports facilities and physical training for holistic development of students.</p>
+      </div>
+      <div class="feature">
+        <h4>Experienced Faculty</h4>
+        <p>Qualified and passionate educators dedicated to academic and personal growth of students.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 BGS Public School, Kengeri | Designed with ❤️ for learning | <a href="https://bgspskengeri.edu.in/" style="color: #ffd700;">Visit Official Website</a>
+  </footer>
 
 </body>
 </html>
