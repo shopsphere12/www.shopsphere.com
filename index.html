@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BGS Public School</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -14,22 +14,33 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f4f8fb;
+      background-color: #f0f4f8;
       color: #333;
     }
 
     header {
-      background-color: #004080;
+      background-color: #003366;
       color: white;
-      padding: 20px 40px;
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
 
-    header h1 {
-      font-size: 28px;
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 60px;
+      width: 60px;
+      margin-right: 15px;
+    }
+
+    .logo h1 {
+      font-size: 24px;
     }
 
     nav ul {
@@ -61,10 +72,10 @@
     }
 
     .hero h2 {
-      font-size: 40px;
-      background-color: rgba(0, 0, 0, 0.6);
+      font-size: 36px;
+      background-color: rgba(0, 0, 0, 0.5);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 8px;
     }
 
     .section {
@@ -74,13 +85,14 @@
 
     .section h3 {
       font-size: 28px;
-      color: #004080;
+      color: #003366;
       margin-bottom: 20px;
     }
 
     .section p {
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto;
+      font-size: 16px;
       line-height: 1.8;
     }
 
@@ -88,8 +100,8 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 40px;
       gap: 30px;
+      margin-top: 40px;
     }
 
     .feature {
@@ -97,8 +109,8 @@
       padding: 30px;
       width: 280px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      transition: 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
     }
 
     .feature:hover {
@@ -106,8 +118,8 @@
     }
 
     .feature h4 {
+      color: #003366;
       margin-bottom: 10px;
-      color: #004080;
     }
 
     footer {
@@ -120,11 +132,12 @@
 
     @media (max-width: 768px) {
       .hero h2 {
-        font-size: 26px;
+        font-size: 24px;
       }
 
       nav ul {
         flex-direction: column;
+        align-items: flex-start;
         gap: 10px;
         margin-top: 10px;
       }
@@ -133,13 +146,22 @@
         flex-direction: column;
         align-items: center;
       }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>BGS Public School</h1>
+    <div class="logo">
+      <img src="BGS_Logo_200x200-1.png" alt="BGS Public School Logo">
+      <h1>BGS Public School</h1>
+    </div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
@@ -152,33 +174,34 @@
   </header>
 
   <section class="hero">
-    <h2>Empowering Young Minds with Knowledge and Values</h2>
+    <h2>Fostering Excellence in Education & Character</h2>
   </section>
 
   <section class="section">
-    <h3>Welcome to BGS Public School</h3>
+    <h3>Welcome to BGS Public School, Kengeri</h3>
     <p>
-      BGS Public School, Kengeri, is a premier institution that blends traditional Indian values with modern educational practices. We provide a nurturing environment where students grow academically, emotionally, and socially, preparing them for the challenges of tomorrow.
+      BGS Public School, located in Kengeri, Bengaluru, is dedicated to nurturing young minds and shaping future leaders. With state-of-the-art infrastructure, experienced faculty, and a strong focus on academics, values, and co-curricular development, we empower students to excel and thrive in a rapidly changing world.
     </p>
 
     <div class="features">
       <div class="feature">
-        <h4>Smart Classrooms</h4>
-        <p>Equipped with interactive boards and audio-visual aids to enhance learning experiences.</p>
+        <h4>Modern Classrooms</h4>
+        <p>Smart boards, visual aids, and interactive learning methods to boost engagement and understanding.</p>
       </div>
       <div class="feature">
-        <h4>Sports & Fitness</h4>
-        <p>Multiple sports facilities and physical training for holistic development of students.</p>
+        <h4>Sports & Arts</h4>
+        <p>Integrated sports curriculum and cultural programs to ensure all-round development of students.</p>
       </div>
       <div class="feature">
-        <h4>Experienced Faculty</h4>
-        <p>Qualified and passionate educators dedicated to academic and personal growth of students.</p>
+        <h4>Tech & Values</h4>
+        <p>Combining digital innovation with ethical grounding to prepare responsible future citizens.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 BGS Public School, Kengeri | Designed with ❤️ for learning | <a href="https://bgspskengeri.edu.in/" style="color: #ffd700;">Visit Official Website</a>
+    &copy; 2025 BGS Public School | Bengaluru - 560060 | Powered by Education & Vision | 
+    <a href="https://bgspskengeri.edu.in/" style="color: #ffd700;">Visit Official Site</a>
   </footer>
 
 </body>
