@@ -201,58 +201,6 @@
   text-align: center;
   margin: 40px 0;
 }
-    /* The dropdown container */
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-/* Dropdown button */
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit; /* Important for vertical align on mobile phones */
-  margin: 0; /* Important for vertical align on mobile phones */
-}
-
-/* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-/* Dropdown content (hidden by default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-/* Add a grey background color to dropdown links on hover */
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-  display: block;
-}
 
   </style>
 </head>
@@ -268,24 +216,27 @@
     <img src="BGS_Logo_200x200-1.png" alt="BGS Public School Logo">
     <h1>BGS Public School</h1>
   </div>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Facilities</a></li>
-       <div class="dropdown">
-    <button class="dropbtn">Dropdown
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="#">Link 1</a>
-      <a href="#">Link 2</a>
-      <a href="#">Link 3</a>
-    </div>
-      <li><a href="#">Admissions</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
+ <nav>
+  <ul style="list-style: none; display: flex; gap: 20px;">
+    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Home</a></li>
+    
+    <li style="position: relative;">
+      <a href="javascript:void(0)" onclick="toggleDropdown()" style="text-decoration: none; font-weight: bold; color: white;">
+        About ▾
+      </a>
+      <div id="dropdownMenu" style="display: none; position: absolute; background-color: #003366; min-width: 160px; border-radius: 5px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
+        <a href="#" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">About School</a>
+        <a href="#" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">Vision & Mission</a>
+        <a href="#" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">Principal's Message</a>
+      </div>
+    </li>
+
+    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Facilities</a></li>
+    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Admissions</a></li>
+    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Contact</a></li>
+  </ul>
+</nav>
+
 </header>
 
 <!-- 🎞 Carousel -->
@@ -380,6 +331,21 @@ function goToSlide(n) {
   showSlide(slideIndex);
 }
 setInterval(() => changeSlide(1), 5000);
+
+  <script>
+  function toggleDropdown() {
+    var dropdown = document.getElementById("dropdownMenu");
+    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+  }
+
+  // Optional: close dropdown if user clicks outside
+  window.onclick = function(e) {
+    if (!e.target.matches("a") || e.target.innerText.indexOf("About") === -1) {
+      document.getElementById("dropdownMenu").style.display = "none";
+    }
+  }
+</script>
+
 </script>
 
 </body>
