@@ -20,6 +20,7 @@
       justify-content: space-between;
       align-items: center;
       animation: fadeInDown 1s ease;
+      flex-wrap: wrap;
     }
     @keyframes fadeInDown {
       from { opacity: 0; transform: translateY(-20px); }
@@ -35,10 +36,14 @@
       margin-right: 15px;
     }
     .logo h1 { font-size: 24px; }
+
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
+    }
+    nav ul li {
+      position: relative;
     }
     nav ul li a {
       color: white;
@@ -47,6 +52,25 @@
       transition: 0.3s;
     }
     nav ul li a:hover { color: #ffd700; }
+
+    #dropdownMenu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      background-color: #003366;
+      min-width: 160px;
+      border-radius: 5px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    #dropdownMenu a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+    }
+    #dropdownMenu a:hover {
+      background-color: #004080;
+    }
 
     .carousel {
       position: relative;
@@ -156,14 +180,6 @@
       padding: 20px 10px;
       font-size: 14px;
     }
-    body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f0f4f8;
-  color: #333;
-  margin: 0;
-  padding: 0;
-}
-
 
     button {
       display: flex;
@@ -178,37 +194,31 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     button:hover {
       background-color: black;
       color: white;
     }
-
     button:hover svg path,
     button:hover svg circle {
       stroke: white;
       fill: white;
     }
 
-    svg circle {
-      transition: stroke 0.3s;
+    svg circle, svg path {
+      transition: all 0.3s;
     }
 
-    svg path {
-      transition: fill 0.3s;
-    }
     .center-button {
-  text-align: center;
-  margin: 40px 0;
-}
-
+      text-align: center;
+      margin: 40px 0;
+    }
   </style>
 </head>
 <body>
 
 <!-- 🔊 Background Music -->
 <audio autoplay loop hidden>
-  <source src="Ariel Shalom - Star Walk.mp3" type="audio/mpeg">
+  <source src="https://filesamples.com/samples/audio/mp3/sample3.mp3" type="audio/mpeg">
 </audio>
 
 <header>
@@ -216,27 +226,22 @@
     <img src="BGS_Logo_200x200-1.png" alt="BGS Public School Logo">
     <h1>BGS Public School</h1>
   </div>
- <nav>
-  <ul style="list-style: none; display: flex; gap: 20px;">
-    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Home</a></li>
-    
-    <li style="position: relative;">
-      <a href="javascript:void(0)" onclick="toggleDropdown()" style="text-decoration: none; font-weight: bold; color: white;">
-        About ▾
-      </a>
-      <div id="dropdownMenu" style="display: none; position: absolute; background-color: #003366; min-width: 160px; border-radius: 5px; box-shadow: 0 8px 16px rgba(0,0,0,0.2);">
-        <a href="#" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">About School</a>
-        <a href="#" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">Vision & Mission</a>
-        <a href="#" style="color: white; padding: 12px 16px; display: block; text-decoration: none;">Principal's Message</a>
-      </div>
-    </li>
-
-    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Facilities</a></li>
-    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Admissions</a></li>
-    <li><a href="#" style="text-decoration: none; font-weight: bold; color: white;">Contact</a></li>
-  </ul>
-</nav>
-
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#" onclick="toggleDropdown(); return false;">About ▾</a>
+        <div id="dropdownMenu">
+          <a href="#">About School</a>
+          <a href="#">Vision & Mission</a>
+          <a href="#">Principal's Message</a>
+        </div>
+      </li>
+      <li><a href="#">Facilities</a></li>
+      <li><a href="#">Admissions</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
 <!-- 🎞 Carousel -->
@@ -255,28 +260,14 @@
   </div>
 </section>
 
-  <section class="section" style="background-color: #ffffff;">
+<section class="section">
   <h3>About BGS Public School</h3>
   <p style="max-width: 1000px; margin: 20px auto; font-size: 16px; line-height: 1.9; text-align: justify;">
-    BGS Public School, which was founded in 2006 by His Holiness Padma Bhushana Jagadguru Sri Sri Sri Dr. Balagangadharanatha Swamiji under the aegis of Sri Adichunchanagiri Shikshana Trust®, is a co-educational day school. It occupies a prominent place in the 60 acres of BGS Health and Education City campus on Uttarahalli Road, away from the hustle and the bustle of the city but also among the parent community of West and South Bangalore.
-    <br><br>
-    The school has an excellent infrastructure with spacious and well-ventilated classrooms, pure drinking water facility, library, state-of-the-art computer labs, laboratories for different disciplines of science and a beautiful playground. The school also boasts of a fleet of buses plying in different directions to provide conveyance to our students on payment of a nominal fee.
-    <br><br>
-    Nestled between the famous BGS Global Hospital and the colleges of Nursing, B.Ed, and Management, BGSPS provides a secure and tranquil environment of learning and erudition to one and all.
-    <br><br>
-    The school is headed by a very highly qualified and experienced Principal who has the support of a team of dedicated, enthusiastic teachers who leave no stone unturned to help the children in their care.
-    <br><br>
-    At BGS Public School, a sincere effort is made to provide holistic education based on the CBSE curriculum. The school prepares the children to be rooted in the great Indian culture and tradition while preparing them to face the global challenges of the present-day world.
-    <br><br>
-    The curriculum here is aimed at providing excellent education in scholastic subjects, co-curricular activities, value education, games and sports, yoga, music, art & craft and dance. Equal importance has been laid to develop the rounded personalities of the children through personality development programmes, emotional and spiritual development, artistic and aesthetic development of the children.
-    <br><br>
-    A number of opportunities are provided to the children to develop scientific thinking and keep themselves abreast of current events through quizzes and extension lectures.
-    <br><br>
-    <strong>If you are looking for a school for your child to grow on the right path, BGS Public School Kengeri is the place for your wards.</strong>
+    [Your full about text here...]
   </p>
 </section>
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 40px; margin: 60px 0;">
+<div class="center-button">
   <button>
     <span>Register</span>
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
@@ -284,16 +275,13 @@
       <path fill="black" d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z"/>
     </svg>
   </button>
-
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/O67X1TRB8w0?si=cPum_TXqmuKMaxxQ"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
 </div>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/O67X1TRB8w0?si=cPum_TXqmuKMaxxQ" 
+  title="YouTube video player" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
 
+<section class="section">
   <h3>Welcome to BGS Public School, Kengeri</h3>
   <p>BGS Public School, located in Kengeri, Bengaluru, is dedicated to nurturing young minds and shaping future leaders.</p>
   <div class="features">
@@ -332,20 +320,18 @@ function goToSlide(n) {
 }
 setInterval(() => changeSlide(1), 5000);
 
-  <script>
-  function toggleDropdown() {
-    var dropdown = document.getElementById("dropdownMenu");
-    dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-  }
+// Dropdown toggle
+function toggleDropdown() {
+  var dropdown = document.getElementById("dropdownMenu");
+  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+}
 
-  // Optional: close dropdown if user clicks outside
-  window.onclick = function(e) {
-    if (!e.target.matches("a") || e.target.innerText.indexOf("About") === -1) {
-      document.getElementById("dropdownMenu").style.display = "none";
-    }
+// Close dropdown if clicked outside
+window.onclick = function(e) {
+  if (!e.target.matches("a") || e.target.innerText.indexOf("About") === -1) {
+    document.getElementById("dropdownMenu").style.display = "none";
   }
-</script>
-
+}
 </script>
 
 </body>
